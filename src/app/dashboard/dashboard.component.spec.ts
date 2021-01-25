@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -22,4 +25,10 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('displays the expected hero', () => {
+    const dashboardElement: HTMLElement = fixture.nativeElement;
+    const h4 = dashboardElement.querySelector('h4');
+    expect(h4?.textContent).toEqual('Narco');
+  })
 });

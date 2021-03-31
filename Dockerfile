@@ -12,6 +12,8 @@ COPY ./ /angular-frontend/
 
 ARG configuration=production
 
+RUN if [ "$configuration" = "test" ]; then npm install puppeteer; fi
+
 RUN npm run build -- --output-path=./dist/out --configuration $configuration
 
 
